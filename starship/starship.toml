@@ -1,0 +1,101 @@
+format = """\
+$os\
+[](fg:#7DF9AA bg:#83769c)\
+$shell\
+[](fg:#83769c bg:#3B76F0)\
+$directory\
+[](fg:#3B76F0 bg:#FCF392)\
+$git_branch\
+$git_status\
+[](fg:#FCF392 bg:#2b5b84)\
+$python\
+$nodejs\
+$rust\
+$golang\
+$php\
+$c\
+$java\
+\n$sudo$character\
+"""
+
+[os]
+format = "[ $symbol ]($style)"
+style = "fg:#090c0c bg:#7DF9AA"
+disabled = false
+
+[os.symbols]
+Windows = "󰍲 "
+Ubuntu = " "
+Android = " "
+Amazon = " "
+Macos = " "
+
+[shell]
+disabled = false
+format = "[ $indicator ]($style)"
+style = "fg:#E4E4E4 bg:#83769c"
+bash_indicator = " "
+zsh_indicator = "zsh"
+cmd_indicator = " "
+powershell_indicator = " "
+
+[directory]
+format = "[   $path ]($style)"
+style = "fg:#E4E4E4 bg:#3B76F0"
+truncation_length = 3
+fish_style_pwd_dir_length = 1
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = "  "
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_status]
+format = '[$all_status]($style)'
+style = "fg:#1C3A5E bg:#FCF392"
+
+# --- 언어별 설정 (에러 수정 및 최적화) ---
+
+[c]
+symbol = " "
+format = '[ $symbol ($version) ](fg:#E4E4E4 bg:#2b5b84)'
+
+[python]
+symbol = " "
+format = '[ $symbol ($version) ($virtualenv) ](fg:#E4E4E4 bg:#2b5b84)'
+pyenv_prefix = "venv "
+
+[nodejs]
+symbol = " "
+format = '[ $symbol ($version) ](fg:#E4E4E4 bg:#2b5b84)'
+detect_files = ["package.json", ".node-version", "jsconfig.json"]
+
+[rust]
+symbol = " "
+format = '[ $symbol ($version) ](fg:#E4E4E4 bg:#2b5b84)'
+
+[golang]
+symbol = " "
+format = '[ $symbol ($version) ](fg:#E4E4E4 bg:#2b5b84)'
+
+[php]
+symbol = " "
+format = '[ $symbol ($version) ](fg:#E4E4E4 bg:#2b5b84)'
+
+[java]
+symbol = " "
+format = '[ $symbol ($version) ](fg:#E4E4E4 bg:#2b5b84)'
+
+# --- 기타 유틸리티 ---
+
+[cmd_duration]
+min_time = 500
+format = "[$duration]($style)"
+style = "fg:bright-white bg:18"
+
+[character]
+success_symbol = '[ ❯](bold green) '
+error_symbol = '[ ✗](#E84D44) '
+
+[time]
+disabled = true

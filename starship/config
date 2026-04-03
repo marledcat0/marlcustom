@@ -1,4 +1,0 @@
-Host marlmint22-cinamon
-  HostName 192.168.145.3
-  User marlmint
-  IdentityFile ~/.ssh/id_rsa_mint
